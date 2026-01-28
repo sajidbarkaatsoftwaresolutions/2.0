@@ -33,27 +33,27 @@ export function VehicleCard({ id, title, price, image, specs, refNumber }: Vehic
                 </Badge>
             </div>
 
-            <CardContent className="p-4">
+            <CardContent className="p-3 md:p-4">
                 <div className="flex justify-between items-start mb-2">
-                    <h3 className="font-bold text-gray-900 line-clamp-1 text-lg group-hover:text-primary transition-colors">{title}</h3>
+                    <h3 className="font-bold text-gray-900 line-clamp-1 text-sm md:text-lg group-hover:text-primary transition-colors">{title}</h3>
                 </div>
-                <div className="text-2xl font-black text-primary mb-3">
+                <div className="text-lg md:text-2xl font-black text-primary mb-2 md:mb-3">
                     {price}
                 </div>
-                <div className="flex flex-wrap gap-2 text-xs text-muted-foreground mb-3">
+                <div className="flex flex-wrap gap-1 md:gap-2 text-[10px] md:text-xs text-muted-foreground mb-2 md:mb-3">
                     {specs.map((spec, index) => (
-                        <span key={index} className="bg-secondary/5 px-2 py-1 rounded-md font-medium text-secondary/70">
+                        <span key={index} className="bg-secondary/5 px-1.5 py-0.5 md:px-2 md:py-1 rounded-md font-medium text-secondary/70">
                             {spec}
                         </span>
                     ))}
                 </div>
             </CardContent>
 
-            <CardFooter className="p-4 pt-0 flex justify-between items-center text-xs text-muted-foreground border-t bg-muted/20 mt-auto">
+            <CardFooter className="p-3 md:p-4 pt-0 flex justify-between items-center text-[10px] md:text-xs text-muted-foreground border-t bg-muted/20 mt-auto">
                 <div className="py-2">
                     Ref: <span className="font-mono font-medium text-secondary">{refNumber}</span>
                 </div>
-                <Button variant="link" className="text-primary p-0 h-auto font-bold text-xs uppercase tracking-wider">
+                <Button variant="link" className="text-primary p-0 h-auto font-bold text-[10px] md:text-xs uppercase tracking-wider">
                     View Details
                 </Button>
             </CardFooter>

@@ -36,7 +36,7 @@ export default function Home() {
       </section>
 
       {/* Search Widget Section */}
-      <section className="bg-white py-12">
+      <section className="bg-white py-4">
         <div className="container mx-auto px-4">
           <SearchWidget />
         </div>

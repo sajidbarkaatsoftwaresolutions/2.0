@@ -64,49 +64,51 @@ export function LatestArrivals() {
     };
 
     return (
-        <section className="py-20 bg-slate-50">
+        <section className="pt-8 pb-10 bg-slate-50">
             <div className="container mx-auto px-4">
-                <div className="flex justify-between items-end mb-8">
-                    <div>
-                        <h2 className="text-3xl font-black text-gray-900 mb-2">Latest Arrivals</h2>
-                        <p className="text-muted-foreground">Fresh inventory from Japanese auctions added daily.</p>
-                    </div>
-                    <div className="flex gap-2">
-                        <Button
-                            variant="outline"
-                            size="icon"
-                            className="rounded-full h-10 w-10 border-slate-300 hover:bg-white hover:text-primary"
-                            onClick={() => scroll('left')}
-                        >
-                            <ChevronLeft className="h-5 w-5" />
-                        </Button>
-                        <Button
-                            variant="outline"
-                            size="icon"
-                            className="rounded-full h-10 w-10 border-slate-300 hover:bg-white hover:text-primary"
-                            onClick={() => scroll('right')}
-                        >
-                            <ChevronRight className="h-5 w-5" />
-                        </Button>
-                    </div>
-                </div>
-
-                <div
-                    ref={scrollContainerRef}
-                    className="flex gap-4 overflow-x-auto pb-6 -mx-4 px-4 scrollbar-hide snap-x snap-mandatory"
-                >
-                    {featuredCars.map((car) => (
-                        <div key={car.id} className="min-w-[160px] md:min-w-[320px] snap-center">
-                            <VehicleCard {...car} />
+                <div className="max-w-6xl mx-auto">
+                    <div className="flex justify-between items-end mb-8">
+                        <div>
+                            <h2 className="text-3xl font-black text-gray-900 mb-2">Latest Arrivals</h2>
+                            <p className="text-muted-foreground">Fresh inventory from Japanese auctions added daily.</p>
                         </div>
-                    ))}
-                    <div className="min-w-[100px] flex items-center justify-center">
-                        <Button variant="ghost" className="flex flex-col gap-2 h-auto py-8 text-muted-foreground hover:text-primary">
-                            <div className="h-12 w-12 rounded-full bg-primary/10 flex items-center justify-center">
-                                <ArrowRight className="h-6 w-6" />
+                        <div className="flex gap-2">
+                            <Button
+                                variant="outline"
+                                size="icon"
+                                className="rounded-full h-10 w-10 border-slate-300 hover:bg-white hover:text-primary"
+                                onClick={() => scroll('left')}
+                            >
+                                <ChevronLeft className="h-5 w-5" />
+                            </Button>
+                            <Button
+                                variant="outline"
+                                size="icon"
+                                className="rounded-full h-10 w-10 border-slate-300 hover:bg-white hover:text-primary"
+                                onClick={() => scroll('right')}
+                            >
+                                <ChevronRight className="h-5 w-5" />
+                            </Button>
+                        </div>
+                    </div>
+
+                    <div
+                        ref={scrollContainerRef}
+                        className="flex gap-4 overflow-x-auto pb-6 -mx-4 px-4 scrollbar-hide snap-x snap-mandatory"
+                    >
+                        {featuredCars.map((car) => (
+                            <div key={car.id} className="min-w-[160px] md:min-w-[320px] snap-center">
+                                <VehicleCard {...car} />
                             </div>
-                            <span className="font-bold">View All</span>
-                        </Button>
+                        ))}
+                        <div className="min-w-[100px] flex items-center justify-center">
+                            <Button variant="ghost" className="flex flex-col gap-2 h-auto py-8 text-muted-foreground hover:text-primary">
+                                <div className="h-12 w-12 rounded-full bg-primary/10 flex items-center justify-center">
+                                    <ArrowRight className="h-6 w-6" />
+                                </div>
+                                <span className="font-bold">View All</span>
+                            </Button>
+                        </div>
                     </div>
                 </div>
             </div>

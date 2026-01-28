@@ -7,13 +7,13 @@ import { Heart } from 'lucide-react';
 interface VehicleProps {
     id: string;
     title: string;
-    price: string;
+
     image: string;
     specs: string[];
     refNumber: string;
 }
 
-export function VehicleCard({ id, title, price, image, specs, refNumber }: VehicleProps) {
+export function VehicleCard({ id, title, image, specs, refNumber }: VehicleProps) {
     return (
         <Card className="overflow-hidden group hover:shadow-lg transition-shadow duration-300 border-none bg-white rounded-xl">
             <div className="relative aspect-[4/3] overflow-hidden">
@@ -37,9 +37,7 @@ export function VehicleCard({ id, title, price, image, specs, refNumber }: Vehic
                 <div className="flex justify-between items-start mb-1">
                     <h3 className="font-bold text-gray-900 text-sm md:text-lg group-hover:text-primary transition-colors leading-tight">{title}</h3>
                 </div>
-                <div className="text-lg md:text-2xl font-black text-primary mb-1 md:mb-3">
-                    {price}
-                </div>
+
                 <div className="flex flex-wrap gap-1 md:gap-2 text-[10px] md:text-xs text-muted-foreground">
                     {specs.map((spec, index) => (
                         <span key={index} className="bg-secondary/5 px-1.5 py-0.5 md:px-2 md:py-1 rounded-md font-medium text-secondary/70">

@@ -1,58 +1,24 @@
 import { SearchWidget } from "@/components/home/SearchWidget";
-import { VehicleCard } from "@/components/home/VehicleCard";
+import { LatestArrivals } from "@/components/home/LatestArrivals";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Flame } from "lucide-react";
 
 export default function Home() {
-  // Mock data for featured cars
-  const featuredCars = [
-    {
-      id: "1",
-      title: "2020 Toyota Land Cruiser Prado",
-      price: "$45,000",
-      image: "https://placehold.co/800x600/2563eb/white?text=Toyota+Prado",
-      specs: ["2020", "2800cc", "4WD", "AT"],
-      refNumber: "LCP-2020-001"
-    },
-    {
-      id: "2",
-      title: "2019 Mercedes-Benz C-Class",
-      price: "$32,500",
-      image: "https://placehold.co/800x600/2563eb/white?text=Mercedes+C-Class",
-      specs: ["2019", "1800cc", "2WD", "AT"],
-      refNumber: "MBC-2019-042"
-    },
-    {
-      id: "3",
-      title: "2021 Honda Vezel Hybrid",
-      price: "$24,800",
-      image: "https://placehold.co/800x600/2563eb/white?text=Honda+Vezel",
-      specs: ["2021", "1500cc", "Hybrid", "AT"],
-      refNumber: "HVH-2021-110"
-    },
-    {
-      id: "4",
-      title: "2018 Nissan X-Trail",
-      price: "$18,900",
-      image: "https://placehold.co/800x600/2563eb/white?text=Nissan+X-Trail",
-      specs: ["2018", "2000cc", "4WD", "AT"],
-      refNumber: "NXT-2018-088"
-    }
-  ];
+
 
   return (
     <div className="flex flex-col min-h-screen">
       {/* Text Banner */}
       <section className="bg-indigo-50 py-10 border-b border-indigo-100">
         <div className="container mx-auto px-4">
-          <div className="grid md:grid-cols-2 gap-8 items-center">
+          <div className="grid grid-cols-2 gap-4 md:gap-8 items-center">
             {/* Left Side: Title */}
             <div className="flex flex-col items-end md:pr-8 md:border-r-2 md:border-indigo-200">
-              <div className="inline-flex items-center gap-1.5 bg-red-100 text-red-600 px-3 py-1 rounded-full text-xs font-bold mb-2 animate-pulse">
+              <div className="inline-flex items-center gap-1.5 bg-red-100 text-red-600 px-2 py-0.5 md:px-3 md:py-1 rounded-full text-[10px] md:text-xs font-bold mb-2 animate-pulse whitespace-nowrap">
                 <Flame className="h-3 w-3 fill-red-600" />
-                TODAY'S SPECIAL OFFER
+                TODAY'S SPECIAL
               </div>
-              <h1 className="text-3xl md:text-5xl font-black text-slate-900 text-right">
+              <h1 className="text-xl md:text-5xl font-black text-slate-900 text-right leading-tight">
                 Today's <br />
                 <span className="text-primary">Special Offer</span>
               </h1>
@@ -60,9 +26,9 @@ export default function Home() {
 
             {/* Right Side: Description */}
             <div className="md:pl-2">
-              <p className="text-lg text-muted-foreground max-w-md">
+              <p className="text-xs md:text-lg text-muted-foreground max-w-md">
                 Search through thousands of high-quality vehicles available for direct import from Japan.
-                Full transparency and door-to-door service.
+                Full transparency.
               </p>
             </div>
           </div>
@@ -77,31 +43,7 @@ export default function Home() {
       </section>
 
       {/* Latest Stock Section */}
-      <section className="py-20 bg-slate-50">
-        <div className="container mx-auto px-4">
-          <div className="flex justify-between items-end mb-10">
-            <div>
-              <h2 className="text-3xl font-black text-gray-900 mb-2">Latest Arrivals</h2>
-              <p className="text-muted-foreground">Fresh inventory from Japanese auctions added daily.</p>
-            </div>
-            <Button variant="outline" className="hidden md:flex gap-2">
-              View All Stock <ArrowRight className="h-4 w-4" />
-            </Button>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {featuredCars.map((car) => (
-              <VehicleCard key={car.id} {...car} />
-            ))}
-          </div>
-
-          <div className="mt-10 md:hidden">
-            <Button variant="outline" className="w-full gap-2">
-              View All Stock <ArrowRight className="h-4 w-4" />
-            </Button>
-          </div>
-        </div>
-      </section>
+      <LatestArrivals />
 
       {/* Why Choose Us Section */}
       <section className="py-20 bg-white">

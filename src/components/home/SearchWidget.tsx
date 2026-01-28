@@ -16,9 +16,9 @@ export function SearchWidget() {
         <Card className="w-full max-w-6xl mx-auto shadow-md border-none bg-white rounded-xl overflow-hidden">
             <CardContent className="p-0">
                 <div className="flex flex-col lg:flex-row divide-y lg:divide-y-0 lg:divide-x divide-slate-200">
-                    <div className="flex-1 flex flex-col lg:flex-row divide-y lg:divide-y-0 lg:divide-x divide-slate-200">
+                    <div className="flex-1 grid grid-cols-2 lg:flex lg:flex-row lg:divide-x lg:divide-slate-200">
                         {/* Make */}
-                        <div className="relative p-2 hover:bg-slate-50 transition-colors group flex-1">
+                        <div className="relative p-2 hover:bg-slate-50 transition-colors group flex-1 border-b border-r border-slate-200 lg:border-0">
                             <Select>
                                 <SelectTrigger className="w-full h-14 border-none bg-transparent focus:ring-0 px-4 py-2 hover:bg-slate-100/50 transition-colors shadow-none data-[state=open]:bg-slate-100">
                                     <div className="flex flex-col items-start gap-1">
@@ -37,7 +37,7 @@ export function SearchWidget() {
                         </div>
 
                         {/* Model */}
-                        <div className="relative p-2 hover:bg-slate-50 transition-colors group flex-1">
+                        <div className="relative p-2 hover:bg-slate-50 transition-colors group flex-1 border-b border-slate-200 lg:border-0">
                             <Select>
                                 <SelectTrigger className="w-full h-14 border-none bg-transparent focus:ring-0 px-4 py-2 hover:bg-slate-100/50 transition-colors shadow-none data-[state=open]:bg-slate-100">
                                     <div className="flex flex-col items-start gap-1">
@@ -55,7 +55,7 @@ export function SearchWidget() {
                         </div>
 
                         {/* Min Year */}
-                        <div className="relative p-2 hover:bg-slate-50 transition-colors group flex-1">
+                        <div className="relative p-2 hover:bg-slate-50 transition-colors group flex-1 border-r border-slate-200 lg:border-0">
                             <Select>
                                 <SelectTrigger className="w-full h-14 border-none bg-transparent focus:ring-0 px-4 py-2 hover:bg-slate-100/50 transition-colors shadow-none data-[state=open]:bg-slate-100">
                                     <div className="flex flex-col items-start gap-1">
@@ -74,7 +74,7 @@ export function SearchWidget() {
                         </div>
 
                         {/* Max Year */}
-                        <div className="relative p-2 hover:bg-slate-50 transition-colors group flex-1">
+                        <div className="relative p-2 hover:bg-slate-50 transition-colors group flex-1 lg:border-0">
                             <Select>
                                 <SelectTrigger className="w-full h-14 border-none bg-transparent focus:ring-0 px-4 py-2 hover:bg-slate-100/50 transition-colors shadow-none data-[state=open]:bg-slate-100">
                                     <div className="flex flex-col items-start gap-1">

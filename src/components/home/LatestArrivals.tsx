@@ -11,7 +11,7 @@ export function LatestArrivals() {
     const featuredCars = [
         {
             id: "1",
-            title: "2020 Toyota Land Cruiser Prado",
+            title: "Toyota Land Cruiser Prado",
 
             image: "/placeholder.png",
             specs: ["2020", "2800cc", "4WD", "AT"],
@@ -19,7 +19,7 @@ export function LatestArrivals() {
         },
         {
             id: "2",
-            title: "2019 Mercedes-Benz C-Class",
+            title: "Mercedes-Benz C-Class",
 
             image: "/placeholder.png",
             specs: ["2019", "1800cc", "2WD", "AT"],
@@ -27,7 +27,7 @@ export function LatestArrivals() {
         },
         {
             id: "3",
-            title: "2021 Honda Vezel Hybrid",
+            title: "Honda Vezel Hybrid",
 
             image: "/placeholder.png",
             specs: ["2021", "1500cc", "Hybrid", "AT"],
@@ -35,7 +35,7 @@ export function LatestArrivals() {
         },
         {
             id: "4",
-            title: "2018 Nissan X-Trail",
+            title: "Nissan X-Trail",
 
             image: "/placeholder.png",
             specs: ["2018", "2000cc", "4WD", "AT"],
@@ -43,7 +43,7 @@ export function LatestArrivals() {
         },
         {
             id: "5",
-            title: "2022 Subaru Forester",
+            title: "Subaru Forester",
 
             image: "/placeholder.png",
             specs: ["2022", "2000cc", "AWD", "CVT"],
@@ -54,7 +54,7 @@ export function LatestArrivals() {
     const scroll = (direction: 'left' | 'right') => {
         if (scrollContainerRef.current) {
             const { current } = scrollContainerRef;
-            const scrollAmount = 200; // Adjusted scroll amount for smaller cards
+            const scrollAmount = 220; // Adjusted scroll amount for smaller cards
             if (direction === 'left') {
                 current.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
             } else {
@@ -97,7 +97,7 @@ export function LatestArrivals() {
                         className="flex gap-4 overflow-x-auto pb-6 -mx-4 px-4 scrollbar-hide snap-x snap-mandatory"
                     >
                         {featuredCars.map((car) => (
-                            <div key={car.id} className="min-w-[160px] md:min-w-[320px] snap-center">
+                            <div key={car.id} className="min-w-[120px] md:min-w-[200px] snap-center">
                                 <VehicleCard {...car} />
                             </div>
                         ))}

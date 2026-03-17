@@ -1,10 +1,14 @@
+import { useTranslations } from 'next-intl';
 import { SearchWidget } from "@/components/home/SearchWidget";
-import { LatestArrivals } from "@/components/home/LatestArrivals";
+import { VehicleCarousel } from "@/components/home/VehicleCarousel";
+import { TabbedVehicleGrid } from "@/components/home/TabbedVehicleGrid";
+import { CategoryGrid } from "@/components/home/CategoryGrid";
+import { COUNTRY_ITEMS, FUEL_ITEMS, BODY_ITEMS } from "@/lib/constants/grids";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Flame } from "lucide-react";
 
 export default function Home() {
-
+  const t = useTranslations('Index');
 
   return (
     <div className="flex flex-col min-h-screen">
@@ -18,17 +22,13 @@ export default function Home() {
                 <Flame className="h-3 w-3 fill-red-600" />
                 TODAY'S SPECIAL
               </div>
-              <h1 className="text-xl md:text-5xl font-black text-slate-900 text-right leading-tight">
-                Today's <br />
-                <span className="text-primary">Special Offer</span>
-              </h1>
+              <h1 className="text-xl md:text-5xl font-black text-slate-900 text-right leading-tight" dangerouslySetInnerHTML={{ __html: t.raw('title') }} />
             </div>
 
             {/* Right Side: Description */}
             <div className="md:pl-2">
               <p className="text-xs md:text-lg text-muted-foreground max-w-md">
-                Search through thousands of high-quality vehicles available for direct import from Japan.
-                Full transparency.
+                {t('description')}
               </p>
             </div>
           </div>
@@ -42,14 +42,80 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Latest Stock Section */}
-      <LatestArrivals />
+      {/* En Route Section */}
+      <TabbedVehicleGrid
+        title="En route"
+        subtitle="Vehicles currently shipping to your region."
+        viewAllText="View All En Route »"
+      />
+
+      {/* Carousel Sections — All Live API Data */}
+      <VehicleCarousel
+        title="Latest Arrivals"
+        subtitle="Fresh inventory added daily from auctions."
+        apiParams={{ limit: 12 }}
+      />
+      <VehicleCarousel
+        title="Premium Vehicles"
+        subtitle="Top-rated vehicles with auction grade 4.0 and above."
+        apiParams={{ limit: 12, min_rating: '4' }}
+        viewAllText="View All Premium"
+      />
+      <VehicleCarousel
+        title="Best Deals"
+        subtitle="Low mileage vehicles under 50,000 km."
+        apiParams={{ limit: 12, mileage_to: '50000' }}
+        viewAllText="View All Deals"
+      />
+      <VehicleCarousel
+        title="Featured"
+        subtitle="Popular picks from top-selling brands."
+        apiParams={{ limit: 12, vendor: 'TOYOTA' }}
+        viewAllText="View All Featured"
+      />
+
+      {/* Browse by Make Grid */}
+      <CategoryGrid
+        title="Browse by Make"
+        subtitle="{count} manufacturers available"
+        apiEndpoint="/api/makes"
+        layout="make"
+        columnsClass="grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6"
+        defaultVisibleCount={24}
+      />
+
+      {/* Browse by Country Grid */}
+      <CategoryGrid
+        title="Browse by Country"
+        subtitle="{count} regions available"
+        items={COUNTRY_ITEMS}
+        layout="country"
+        columnsClass="grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5"
+      />
+
+      {/* Browse by Fuel Type Grid */}
+      <CategoryGrid
+        title="Browse by Fuel Type"
+        subtitle="Select a powertrain to find your next vehicle"
+        items={FUEL_ITEMS}
+        layout="icon"
+        columnsClass="grid-cols-2 sm:grid-cols-3 md:grid-cols-6"
+      />
+
+      {/* Browse by Body Type Grid */}
+      <CategoryGrid
+        title="Browse by Body Type"
+        subtitle="Find the perfect fit for your lifestyle"
+        items={BODY_ITEMS}
+        layout="icon"
+        columnsClass="grid-cols-2 sm:grid-cols-3 md:grid-cols-6"
+      />
 
       {/* Why Choose Us Section */}
       <section className="py-20 bg-white">
         <div className="container mx-auto px-4">
           <div className="text-center max-w-2xl mx-auto mb-16">
-            <h2 className="text-3xl font-black text-gray-900 mb-4">Why Choose Barkaat?</h2>
+            <h2 className="text-3xl font-black text-gray-900 mb-4">Why Choose Chiyo Aki?</h2>
             <p className="text-lg text-muted-foreground">We simplify the process of importing high-quality vehicles from Japan to your doorstep.</p>
           </div>
 

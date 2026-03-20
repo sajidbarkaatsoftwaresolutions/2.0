@@ -1,6 +1,36 @@
 {
     "Index": {
-        "title": "Today's <br /><span class=\"text-primary\">Special Offer</span>",
-        "description": "Search through thousands of high-quality vehicles available for direct import from Japan. Full transparency."
+        "title": "Today's <br></br><span>Special Offer</span>",
+        "description": "Search through thousands of high-quality vehicles available for direct import from Japan. Full transparency.",
+        "enRoute": "En route",
+        "enRouteSubtitle": "Vehicles currently shipping to your region.",
+        "viewAllEnRoute": "View All En Route »",
+        "latestArrivals": "Latest Arrivals",
+        "latestArrivalsSubtitle": "Fresh inventory added daily from auctions.",
+        "premiumVehicles": "Premium Vehicles",
+        "premiumVehiclesSubtitle": "Top-rated vehicles with auction grade 4.0 and above.",
+        "viewAllPremium": "View All Premium",
+        "bestDeals": "Best Deals",
+        "bestDealsSubtitle": "Low mileage vehicles under 50,000 km.",
+        "viewAllDeals": "View All Deals",
+        "featured": "Featured",
+        "featuredSubtitle": "Popular picks from top-selling brands.",
+        "viewAllFeatured": "View All Featured",
+        "browseByMake": "Browse by Make",
+        "browseByMakeSubtitle": "'{'count'}' manufacturers available",
+        "browseByCountry": "Browse by Country",
+        "browseByCountrySubtitle": "'{'count'}' regions available",
+        "browseByFuel": "Browse by Fuel Type",
+        "browseByFuelSubtitle": "Select a powertrain to find your next vehicle",
+        "browseByBody": "Browse by Body Type",
+        "browseByBodySubtitle": "Find the perfect fit for your lifestyle",
+        "whyChooseTitle": "Why Choose Chiyo Aki?",
+        "whyChooseSubtitle": "We simplify the process of importing high-quality vehicles from Japan to your doorstep.",
+        "verifiedQuality": "Verified Quality",
+        "verifiedQualityDesc": "Every vehicle undergoes a strict inspection process before being listed.",
+        "transparentPricing": "Transparent Pricing",
+        "transparentPricingDesc": "No hidden fees. We provide a clear breakdown of all costs involved.",
+        "fastShipping": "Fast Shipping",
+        "fastShippingDesc": "We handle all logistics to ensure your vehicle reaches you in record time."
     }
 }

@@ -1,0 +1,54 @@
+don't make any changes, just note down the requirements and create a plan first. This is how the website is going to function. Besides 3rd party is already integrated. The way it would work is for in house stock the stock would be pulled from odoo. When the website/home page loads for first time third party option would be selected by default and japan would be the default country. Both of these default selection would be configurable so we don't need to make changes to code if we need to change anything. 
+We have different sections on the home page.
+
+1. En Route
+    - This would always be in house stock.
+2. Latest Arrivals
+    - This would always be in house stock
+3. Premium Vehicles
+    - This would be fetched from odoo if in stock is selected and from 3rd party if 3rd party is selected.
+        - In stock: its fairly easy to fetch vehicles from odoo tagged as premium vehicles.
+        - 3rd party: its going to be hard to fetch from 3rd party. Because first we need to keep a list of premium vehicles from 3rd party and then fetch them. But there's a possibility that the vehicles list we are keeping might not be available on 3rd party anymore. So we need to handle that case. One solution that comes ot mind is we would need to configure primary and secondary list of premium vehicles from 3rd party. 
+4. Best Deals
+    - This would be fetched from odoo if in stock is selected and from 3rd party if 3rd party is selected.
+        - In stock: its fairly easy to fetch vehicles from odoo tagged as best deals.
+        - 3rd party: its going to be hard to fetch from 3rd party. Because first we need to keep a list of best deals from 3rd party and then fetch them. But there's a possibility that the vehicles list we are keeping might not be available on 3rd party anymore. So we need to handle that case. One solution that comes ot mind is we would need to configure primary and secondary list of best deals from 3rd party. 
+5. Featured
+    - This would be fetched from odoo if in stock is selected and from 3rd party if 3rd party is selected.
+        - In stock: its fairly easy to fetch vehicles from odoo tagged as featured vehicles.
+        - 3rd party: its going to be hard to fetch from 3rd party. Because first we need to keep a list of featured vehicles from 3rd party and then fetch them. But there's a possibility that the vehicles list we are keeping might not be available on 3rd party anymore. So we need to handle that case. One solution that comes ot mind is we would need to configure primary and secondary list of featured vehicles from 3rd party. 
+6. Browse by Make
+    - This would be fetched from odoo if in stock is selected and from 3rd party if 3rd party is selected.
+        - In stock: its fairly easy to fetch vehicles from odoo tagged as make vehicles.
+        - 3rd party: its going to be hard to fetch from 3rd party. Because first we need to keep a list of make vehicles from 3rd party and then fetch them. But there's a possibility that the vehicles list we are keeping might not be available on 3rd party anymore. So we need to handle that case. One solution that comes ot mind is we would need to configure primary and secondary list of make vehicles from 3rd party. 
+7. Browse by Country
+    - This would be fetched from odoo if in stock is selected and from 3rd party if 3rd party is selected.
+        - In stock: its fairly easy to fetch vehicles from odoo tagged as country vehicles.
+        - 3rd party: its going to be hard to fetch from 3rd party. Because first we need to keep a list of country vehicles from 3rd party and then fetch them. But there's a possibility that the vehicles list we are keeping might not be available on 3rd party anymore. So we need to handle that case. One solution that comes ot mind is we would need to configure primary and secondary list of country vehicles from 3rd party. 
+8. Browse by Fuel Type
+    - This would be fetched from odoo if in stock is selected and from 3rd party if 3rd party is selected.
+        - In stock: its fairly easy to fetch vehicles from odoo tagged as fuel type vehicles.
+        - 3rd party: its going to be hard to fetch from 3rd party. Because first we need to keep a list of fuel type vehicles from 3rd party and then fetch them. But there's a possibility that the vehicles list we are keeping might not be available on 3rd party anymore. So we need to handle that case. One solution that comes ot mind is we would need to configure primary and secondary list of fuel type vehicles from 3rd party. 
+9. Browse by Body Type
+    - This would be fetched from odoo if in stock is selected and from 3rd party if 3rd party is selected.
+        - In stock: its fairly easy to fetch vehicles from odoo tagged as body type vehicles.
+        - 3rd party: its going to be hard to fetch from 3rd party. Because first we need to keep a list of body type vehicles from 3rd party and then fetch them. But there's a possibility that the vehicles list we are keeping might not be available on 3rd party anymore. So we need to handle that case. One solution that comes ot mind is we would need to configure primary and secondary list of body type vehicles from 3rd party. 
+
+I believe the make list, country list, fuel type list and body type list would be fetched from odoo. The make list, country list, fuel type list and body type list should be standard and saved in odoo and depending on in stock or 3rd party is selected the vehicles based on the selected item should be fetched from odoo or 3rd party.
+
+When fetching data from 3rd party, the country selection is important Because its possible same api provider would give us data from all the 3rd party configured country. Or, we may need separate api providers for each country. For instance, avto, our current api provider, provides data for japan and china. But for china the table is different. The table name is essentially china if we want to fetch chinese vehicles. However, it doesn't give us data for other countries. So we need to handle that case, probably get apis from other providers. 
+Keeping this in mind, we need to create and keep our own vehicle model and map incoming vehicle details from odoo and avto/3rd party apis to our own vehicle model. This would ensure consistency in the data we display on the website. 
+When a user clicks on view all on any of the following sections en route, latest arrivals, premium vehicles, best deals, featured, browse or select a make from browse by make, or select a country from browse by country, or select a fuel type from browse by fuel type, or select a body type from browse by body type, it should take the user to a page where all the vehicles are displayed in a grid format. The page should have the same filters as the search widget. 
+
+Signup and Sign in will be handled by odoo. Our website will just be a frontend for odoo. 
+Odoo Live Chat will be used for customer support. And integrated with our website. 
+We need to integrate whatsapp chat with our website. 
+We need to integrate enquiry button in every car card. This will enable the user to create an enquiry that would be created as a crm lead in odoo.
+Similarly, the user profile, dashboard, etc will be handled by odoo. Our website will just be a frontend for odoo. 
+
+
+The website will mainly have following pages for visitors
+1) Home page
+2) Listing page
+3) Detail page
+

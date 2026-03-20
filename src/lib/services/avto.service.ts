@@ -1,5 +1,6 @@
 import { API_CODE, API_SERVER, API_PATH, TABLE } from '@/lib/avto';
 import { ApiError } from '@/lib/utils/api-error';
+import type { AvtoVehicle } from '@/types/vehicle';
 
 export class AvtoService {
     /**
@@ -44,7 +45,7 @@ export class AvtoService {
     /**
      * Executes the main vehicle search query with specific filters.
      */
-    static async getVehicles(ip: string, params: { vendor?: string, model?: string, yearFrom?: number, mileageFrom?: number, mileageTo?: number, minRating?: number, limit: number, offset: number }) {
+    static async getVehicles(ip: string, params: { vendor?: string, model?: string, yearFrom?: number, mileageFrom?: number, mileageTo?: number, minRating?: number, limit: number, offset: number }, table: string = TABLE): Promise<AvtoVehicle[]> {
         let whereClause = "AUCTION_TYPE!=1";
 
         if (params.vendor) {
@@ -73,24 +74,33 @@ export class AvtoService {
             whereClause += ` AND rate >= ${params.minRating}`;
         }
 
-        const sqlStr = `SELECT * FROM ${TABLE} WHERE ${whereClause} ORDER BY year DESC, mileage DESC LIMIT ${params.offset}, ${params.limit}`;
+        const sqlStr = `SELECT * FROM ${table} WHERE ${whereClause} ORDER BY year DESC, mileage DESC LIMIT ${params.offset}, ${params.limit}`;
+        return this.fetchAvto(ip, sqlStr, 1800);
+    }
+
+    /**
+     * Fetches a single vehicle by its ID.
+     */
+    static async getVehicleById(ip: string, vehicleId: string, table: string = TABLE): Promise<AvtoVehicle[]> {
+        const safeId = vehicleId.replace(/'/g, "''");
+        const sqlStr = `SELECT * FROM ${table} WHERE ID='${safeId}' LIMIT 1`;
         return this.fetchAvto(ip, sqlStr, 1800);
     }
 
     /**
      * Retrieves grouped distinct makes.
      */
-    static async getMakes(ip: string) {
-        const sqlStr = `SELECT marka_name, count(*) FROM ${TABLE} WHERE AUCTION_TYPE!=1 GROUP BY marka_name ORDER BY marka_name ASC`;
+    static async getMakes(ip: string, table: string = TABLE) {
+        const sqlStr = `SELECT marka_name, count(*) FROM ${table} WHERE AUCTION_TYPE!=1 GROUP BY marka_name ORDER BY marka_name ASC`;
         return this.fetchAvto(ip, sqlStr, 43200); // Cache for 12 hours
     }
 
     /**
      * Retrieves specific models for a specific make.
      */
-    static async getModelsByMake(ip: string, vendor: string) {
+    static async getModelsByMake(ip: string, vendor: string, table: string = TABLE) {
         const safeVendor = vendor.replace(/'/g, "''");
-        const sqlStr = `SELECT model_name, count(*) FROM ${TABLE} WHERE AUCTION_TYPE!=1 AND marka_name='${safeVendor}' GROUP BY model_name ORDER BY model_name`;
+        const sqlStr = `SELECT model_name, count(*) FROM ${table} WHERE AUCTION_TYPE!=1 AND marka_name='${safeVendor}' GROUP BY model_name ORDER BY model_name`;
         return this.fetchAvto(ip, sqlStr, 43200); // Cache for 12 hours
     }
 }

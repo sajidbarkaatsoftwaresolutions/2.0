@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import "../globals.css";
 import { Header } from "@/components/layout/Header";
 import { TopBanner } from "@/components/layout/TopBanner";
-import { PromotionalBanner } from "@/components/layout/PromotionalBanner";
 import { Footer } from "@/components/layout/Footer";
 
 import { NextIntlClientProvider } from 'next-intl';
@@ -13,6 +12,15 @@ import { routing } from '@/i18n/routing';
 export const metadata: Metadata = {
   title: "Chiyo Aki Pty Ltd | Global Used Cars Exporter",
   description: "Import high-quality used cars directly with Chiyo Aki. Browse our massive live inventory of affordable vehicles, commercial trucks, and buses from Japan, India, Australia, Thailand, and China available for worldwide export.",
+  icons: {
+    icon: [
+      { url: '/favicon.ico' },
+      { url: '/favicon-32x32.png', sizes: '32x32', type: 'image/png' },
+    ],
+    apple: [
+      { url: '/apple-touch-icon.png' }
+    ],
+  },
 };
 
 export default async function RootLayout({
@@ -36,14 +44,12 @@ export default async function RootLayout({
   return (
     <html lang={locale}>
       <body
-        className="font-sans antialiased text-[13px] bg-[#f5f5f5] text-[#333333]"
-        style={{ fontFamily: 'Arial, Helvetica, sans-serif' }}
+        className="font-sans antialiased text-[13px] bg-surface text-foreground"
       >
         <NextIntlClientProvider messages={messages}>
           <div className="flex min-h-screen flex-col">
             <TopBanner />
             <Header />
-            <PromotionalBanner />
             <main className="flex-1">
               {children}
             </main>

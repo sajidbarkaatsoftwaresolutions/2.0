@@ -23,7 +23,7 @@ export default function LanguageSwitcher() {
             <span className="text-[12px]">🌐</span>
             <select
                 id="language-select"
-                className="bg-transparent border-none text-[11px] md:text-xs font-bold text-[#333333] cursor-pointer focus:outline-none appearance-none pr-4"
+                className="bg-transparent border-none text-[11px] md:text-xs font-bold text-foreground cursor-pointer focus:outline-none appearance-none pr-4"
                 defaultValue={locale}
                 onChange={onSelectChange}
                 disabled={isPending}

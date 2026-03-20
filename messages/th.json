@@ -1,6 +1,36 @@
 {
     "Index": {
-        "title": "ข้อเสนอพิเศษ <br /><span class=\"text-primary\">ประจำวันนี้</span>",
-        "description": "ค้นหารถยนต์คุณภาพสูงหลายพันคันที่พร้อมนำเข้าโดยตรงจากประเทศญี่ปุ่น โปร่งใสทุกขั้นตอน"
+        "title": "ข้อเสนอพิเศษ <br></br><span>ประจำวันนี้</span>",
+        "description": "ค้นหารถยนต์คุณภาพสูงหลายพันคันที่พร้อมนำเข้าโดยตรงจากประเทศญี่ปุ่น โปร่งใสทุกขั้นตอน",
+        "enRoute": "ระหว่างการขนส่ง",
+        "enRouteSubtitle": "ยานพาหนะที่กำลังจัดส่งไปยังภูมิภาคของคุณ",
+        "viewAllEnRoute": "ดูทั้งหมดที่อยู่ระหว่างขนส่ง »",
+        "latestArrivals": "สินค้าใหม่ล่าสุด",
+        "latestArrivalsSubtitle": "สต็อกใหม่จากการประมูลทุกวัน",
+        "premiumVehicles": "รถยนต์ระดับพรีเมียม",
+        "premiumVehiclesSubtitle": "รถยนต์คุณภาพสูงเกรดประมูล 4.0 ขึ้นไป",
+        "viewAllPremium": "ดูทั้งหมดพรีเมียม",
+        "bestDeals": "ดีลสุดคุ้ม",
+        "bestDealsSubtitle": "รถยนต์ระยะทางต่ำกว่า 50,000 กม.",
+        "viewAllDeals": "ดูทั้งหมดดีลสุดคุ้ม",
+        "featured": "แนะนำ",
+        "featuredSubtitle": "ตัวเลือกยอดนิยมจากแบรนด์ขายดี",
+        "viewAllFeatured": "ดูทั้งหมดแนะนำ",
+        "browseByMake": "เรียกดูตามยี่ห้อ",
+        "browseByMakeSubtitle": "'{'count'}' ผู้ผลิตที่มีอยู่",
+        "browseByCountry": "เรียกดูตามประเทศ",
+        "browseByCountrySubtitle": "'{'count'}' ภูมิภาคที่มีอยู่",
+        "browseByFuel": "เรียกดูตามประเภทเชื้อเพลิง",
+        "browseByFuelSubtitle": "เลือกระบบขับเคลื่อนเพื่อค้นหารถคันต่อไป",
+        "browseByBody": "เรียกดูตามประเภทตัวถัง",
+        "browseByBodySubtitle": "ค้นหารถที่เหมาะกับไลฟ์สไตล์ของคุณ",
+        "whyChooseTitle": "ทำไมต้องเลือก Chiyo Aki?",
+        "whyChooseSubtitle": "เราทำให้กระบวนการนำเข้ารถยนต์คุณภาพสูงจากญี่ปุ่นถึงหน้าบ้านคุณง่ายขึ้น",
+        "verifiedQuality": "คุณภาพผ่านการรับรอง",
+        "verifiedQualityDesc": "ทุกคันผ่านการตรวจสอบอย่างเข้มงวดก่อนลงประกาศ",
+        "transparentPricing": "ราคาโปร่งใส",
+        "transparentPricingDesc": "ไม่มีค่าธรรมเนียมแอบแฝง เราแจกแจงค่าใช้จ่ายทั้งหมดอย่างชัดเจน",
+        "fastShipping": "จัดส่งรวดเร็ว",
+        "fastShippingDesc": "เราจัดการโลจิสติกส์ทั้งหมดเพื่อให้รถของคุณถึงมือคุณในเวลาอันรวดเร็ว"
     }
 }

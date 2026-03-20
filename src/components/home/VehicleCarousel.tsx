@@ -39,17 +39,22 @@ export function VehicleCarousel({
     const scrollContainerRef = useRef<HTMLDivElement>(null);
     const [vehicles, setVehicles] = useState<ReturnType<typeof mapVehiclesToCards>>([]);
     const [isLoading, setIsLoading] = useState(true);
+    const [error, setError] = useState<string | null>(null);
+
+    const loadData = async () => {
+        setIsLoading(true);
+        setError(null);
+        try {
+            const data = await fetchVehicles(apiParams);
+            setVehicles(mapVehiclesToCards(data));
+        } catch (err) {
+            setError('Failed to load vehicles. Please try again.');
+        } finally {
+            setIsLoading(false);
+        }
+    };
 
     useEffect(() => {
-        async function loadData() {
-            try {
-                const data = await fetchVehicles(apiParams);
-                setVehicles(mapVehiclesToCards(data));
-            } finally {
-                setIsLoading(false);
-            }
-        }
-
         loadData();
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
@@ -70,11 +75,11 @@ export function VehicleCarousel({
         <section className="pt-[2px] pb-0 mt-2 bg-white border-t border-gray-200">
             <div className="container mx-auto px-4">
                 <div className="max-w-6xl mx-auto">
-                    <div className="flex justify-between items-end mb-4 border-b border-[#002895] pb-2">
+                    <div className="flex justify-between items-end mb-4 border-b border-secondary pb-2">
                         <div>
-                            <h2 className="text-lg md:text-xl font-black text-[#002895]">{title}</h2>
+                            <h2 className="text-lg md:text-xl font-black text-secondary">{title}</h2>
                             {subtitle && (
-                                <p className="text-[12px] text-[#707070]">{subtitle}</p>
+                                <p className="text-[12px] text-muted-foreground">{subtitle}</p>
                             )}
                         </div>
                         <div className="flex gap-1">
@@ -83,6 +88,7 @@ export function VehicleCarousel({
                                 size="icon"
                                 className="rounded-[3px] h-8 w-8 border-gray-300 hover:bg-gray-100 hover:text-primary transition-none"
                                 onClick={() => scroll('left')}
+                                aria-label="Scroll left"
                             >
                                 <ChevronLeft className="h-4 w-4" />
                             </Button>
@@ -91,6 +97,7 @@ export function VehicleCarousel({
                                 size="icon"
                                 className="rounded-[3px] h-8 w-8 border-gray-300 hover:bg-gray-100 hover:text-primary transition-none"
                                 onClick={() => scroll('right')}
+                                aria-label="Scroll right"
                             >
                                 <ChevronRight className="h-4 w-4" />
                             </Button>
@@ -108,6 +115,18 @@ export function VehicleCarousel({
                                     <div className="h-4 bg-gray-200 animate-pulse rounded mt-1" />
                                 </div>
                             ))
+                        ) : error ? (
+                            <div className="w-full flex items-center justify-center py-8">
+                                <div className="text-center">
+                                    <p className="text-sm text-destructive font-bold mb-2">{error}</p>
+                                    <button
+                                        onClick={loadData}
+                                        className="text-sm text-secondary font-bold hover:underline"
+                                    >
+                                        Retry
+                                    </button>
+                                </div>
+                            </div>
                         ) : (
                             <>
                                 {vehicles.map((car) => (
@@ -115,8 +134,8 @@ export function VehicleCarousel({
                                         <VehicleCard {...car} />
                                     </div>
                                 ))}
-                                <div className="w-[31%] sm:w-[23%] md:w-[18%] lg:w-[15%] shrink-0 flex items-center justify-center border border-gray-200 rounded-[3px] bg-[#f5f5f5]">
-                                    <Button variant="ghost" className="flex flex-col gap-2 h-auto py-8 text-[#002895] hover:tracking-wide transition-all bg-transparent hover:bg-transparent">
+                                <div className="w-[31%] sm:w-[23%] md:w-[18%] lg:w-[15%] shrink-0 flex items-center justify-center border border-gray-200 rounded-[3px] bg-surface">
+                                    <Button variant="ghost" className="flex flex-col gap-2 h-auto py-8 text-secondary hover:tracking-wide transition-all bg-transparent hover:bg-transparent">
                                         <div className="h-10 w-10 rounded-full bg-white shadow-sm flex items-center justify-center border border-gray-200">
                                             <ArrowRight className="h-5 w-5" />
                                         </div>

@@ -2,9 +2,9 @@ import Link from 'next/link';
 
 export function Footer() {
     return (
-        <footer className="w-full border-t bg-[#3c3c3c] py-6 md:py-12 text-slate-300">
+        <footer className="w-full border-t bg-footer py-6 md:py-12 text-slate-300">
             <div className="container px-4 md:px-6">
-                <div className="flex flex-col gap-8 text-center sm:grid sm:grid-cols-2 md:grid-cols-4">
+                <div className="flex flex-col gap-8 text-center sm:grid sm:grid-cols-2 md:grid-cols-5">
                     <div className="flex flex-col items-center gap-2">
                         <h3 className="text-base md:text-lg font-bold text-white">Shop</h3>
                         <Link href="/shop" className="text-[13px] hover:text-primary transition-colors">All Products</Link>
@@ -27,6 +27,13 @@ export function Footer() {
                         <h3 className="text-base md:text-lg font-bold text-white">Legal</h3>
                         <Link href="/privacy" className="text-[13px] hover:text-primary transition-colors">Privacy Policy</Link>
                         <Link href="/terms" className="text-[13px] hover:text-primary transition-colors">Terms of Service</Link>
+                    </div>
+                    <div className="flex flex-col items-center gap-2">
+                        <h3 className="text-base md:text-lg font-bold text-white">Connect</h3>
+                        <a href="https://wa.me/61480803649" target="_blank" rel="noopener noreferrer" className="text-[13px] hover:text-primary transition-colors">WhatsApp</a>
+                        <a href="https://x.com/chiyoakihub" target="_blank" rel="noopener noreferrer" className="text-[13px] hover:text-primary transition-colors">Twitter (X)</a>
+                        <a href="https://www.youtube.com/@ChiyoAkihub" target="_blank" rel="noopener noreferrer" className="text-[13px] hover:text-primary transition-colors">YouTube</a>
+                        <a href="https://www.tiktok.com/@chiyoakihub?lang=en" target="_blank" rel="noopener noreferrer" className="text-[13px] hover:text-primary transition-colors">TikTok</a>
                     </div>
                 </div>
                 <div className="mt-8 border-t border-white/20 pt-8 text-center text-[12px]">

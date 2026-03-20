@@ -154,7 +154,7 @@ export function SearchWidget() {
                         </div>
 
                         <div className="lg:w-48 mt-2 lg:mt-0">
-                            <Button className="w-full h-10 bg-primary hover:bg-[#ef7c13] text-white font-bold text-[14px] shadow-sm rounded-[3px] uppercase tracking-wide">
+                            <Button className="w-full h-10 bg-primary hover:bg-primary-hover text-white font-bold text-[14px] shadow-sm rounded-[3px] uppercase tracking-wide">
                                 <Search className="mr-2 h-4 w-4" />
                                 Search
                             </Button>
@@ -163,16 +163,20 @@ export function SearchWidget() {
 
                     <div className="flex flex-col gap-2">
                         {/* Mutually Exclusive Stock Type Buttons */}
-                        <div className="flex gap-2 shrink-0">
+                        <div className="flex gap-2 shrink-0" role="radiogroup" aria-label="Stock type">
                             <button
                                 onClick={() => setStockType('3rd_party')}
-                                className={`flex items-center justify-center px-4 py-[2px] text-[12px] font-bold rounded-[3px] border transition-colors ${stockType === '3rd_party' ? 'border-[#f1892b] bg-[#f1892b] text-white' : 'border-gray-300 bg-white text-gray-600 hover:bg-gray-50'}`}
+                                className={`flex items-center justify-center px-4 py-[2px] text-[12px] font-bold rounded-[3px] border transition-colors ${stockType === '3rd_party' ? 'border-primary bg-primary text-white' : 'border-gray-300 bg-white text-gray-600 hover:bg-gray-50'}`}
+                                role="radio"
+                                aria-checked={stockType === '3rd_party'}
                             >
                                 3rd Party
                             </button>
                             <button
                                 onClick={() => setStockType('in_stock')}
-                                className={`flex items-center justify-center px-4 py-[2px] text-[12px] font-bold rounded-[3px] border transition-colors ${stockType === 'in_stock' ? 'border-[#f1892b] bg-[#f1892b] text-white' : 'border-gray-300 bg-white text-gray-600 hover:bg-gray-50'}`}
+                                className={`flex items-center justify-center px-4 py-[2px] text-[12px] font-bold rounded-[3px] border transition-colors ${stockType === 'in_stock' ? 'border-primary bg-primary text-white' : 'border-gray-300 bg-white text-gray-600 hover:bg-gray-50'}`}
+                                role="radio"
+                                aria-checked={stockType === 'in_stock'}
                             >
                                 In Stock
                             </button>
@@ -184,7 +188,9 @@ export function SearchWidget() {
                                 <button
                                     key={c.id}
                                     onClick={() => setCountry(c.id)}
-                                    className={`flex items-center gap-1.5 px-3 py-[2px] text-[12px] font-bold rounded-[3px] border transition-colors ${country === c.id ? 'border-[#002895] bg-[#002895] text-white' : 'border-gray-300 bg-white text-gray-600 hover:bg-gray-50'}`}
+                                    className={`flex items-center gap-1.5 px-3 py-[2px] text-[12px] font-bold rounded-[3px] border transition-colors ${country === c.id ? 'border-secondary bg-secondary text-white' : 'border-gray-300 bg-white text-gray-600 hover:bg-gray-50'}`}
+                                    aria-label={`Filter by ${c.name}`}
+                                    aria-pressed={country === c.id}
                                 >
                                     <span className="text-[12px] leading-none">{c.flag}</span>
                                     {c.name}

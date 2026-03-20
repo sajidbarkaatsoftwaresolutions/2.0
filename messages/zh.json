@@ -1,6 +1,36 @@
 {
     "Index": {
-        "title": "今日 <br /><span class=\"text-primary\">特价优惠</span>",
-        "description": "浏览数千辆可直接从日本进口的高质量车辆。完全透明。"
+        "title": "今日 <br></br><span>特价优惠</span>",
+        "description": "浏览数千辆可直接从日本进口的高质量车辆。完全透明。",
+        "enRoute": "运输途中",
+        "enRouteSubtitle": "正在运往您所在地区的车辆。",
+        "viewAllEnRoute": "查看全部运输中 »",
+        "latestArrivals": "最新到货",
+        "latestArrivalsSubtitle": "每日从拍卖会新增库存。",
+        "premiumVehicles": "精品车辆",
+        "premiumVehiclesSubtitle": "拍卖评级4.0及以上的优质车辆。",
+        "viewAllPremium": "查看全部精品",
+        "bestDeals": "超值优惠",
+        "bestDealsSubtitle": "里程低于5万公里的车辆。",
+        "viewAllDeals": "查看全部优惠",
+        "featured": "精选推荐",
+        "featuredSubtitle": "热销品牌的人气之选。",
+        "viewAllFeatured": "查看全部精选",
+        "browseByMake": "按品牌浏览",
+        "browseByMakeSubtitle": "共 '{'count'}' 个制造商",
+        "browseByCountry": "按国家浏览",
+        "browseByCountrySubtitle": "共 '{'count'}' 个地区",
+        "browseByFuel": "按燃料类型浏览",
+        "browseByFuelSubtitle": "选择动力类型，找到您的下一辆车",
+        "browseByBody": "按车身类型浏览",
+        "browseByBodySubtitle": "找到最适合您生活方式的车型",
+        "whyChooseTitle": "为什么选择 Chiyo Aki？",
+        "whyChooseSubtitle": "我们简化从日本进口高品质车辆到您家门口的流程。",
+        "verifiedQuality": "质量认证",
+        "verifiedQualityDesc": "每辆车在上架前都经过严格的检查流程。",
+        "transparentPricing": "价格透明",
+        "transparentPricingDesc": "无隐藏费用。我们提供所有费用的详细明细。",
+        "fastShipping": "快速运输",
+        "fastShippingDesc": "我们处理所有物流事务，确保您的车辆以最快速度送达。"
     }
 }
